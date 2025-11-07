@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycleServe</title>
+        <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo.png" id="logo_img" alt="CycleServe Logo">
+                </div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#quality-section">About</a></li>
+                    <li><a href="#footer-section">Contact</a></li>
+                </ul>
+                <div class="btn user">Sachin</div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="Hero">
+            <h1>Reclaim Your Laundry Day</h1>
+            <p>Spend less time on chores and more on what you love. CycleServe delivers fresh, clean, and perfectly folded laundry right to your door. Effortless booking, premium care.</p>
+            <a href="#" class="h_btn btn">Book a Service Today</a>
+        </section>
+        <section class="achievements">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="overview">
+                <div><h3>15+</h3><p>Laundry Services</p></div>
+                <div><h3>240+</h3><p>Happy Customers</p></div>
+                <div><h3>2+</h3><p>Years of Experience</p></div>
+            </div>
+        </section>
+        <section class="services-booking-section" id="services">
+             <div class="left-service-panel">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-description">Click on the Add Item button to add services to your cart.</p>
+                <div id="service-list-container">
+                </div>
+            </div>
+            <div class="right-cart-panel">
+                <div class="cart-summary card">
+                    <h4>Added Items</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Service Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items-tbody">
+                            <tr class="cart-empty-message">
+                                <td colspan="3">No items added yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total-amount-display">
+                        <strong>Total Amount</strong>
+                        <span>₹<span id="total-amount">0</span></span>
+                    </div>
+                </div>
+                <div class="booking-form card">
+                    <h4>Book Now</h4>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    <button id="book-now-btn" class="btn" disabled>Book Now</button>
+                    <p id="confirmation-message"></p>
+                </div>
+            </div>
+        </section>
+        <section id="quality-section" class="quality-section">
+            <div class="quality-grid">
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="0"><i class="fas fa-box-open"></i><h3>Premium Services</h3><p>Elevate your wardrobe with our meticulous dry cleaning, ensuring garments look and feel as good as new.</p></div>
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-headset"></i><h3>Quick Support</h3><p>We're committed to providing prompt solutions to ensure your experience is smooth and worry-free.</p></div>
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-truck"></i><h3>Hassle Free Delivery</h3><p>Enjoy seamless service with our convenient pickup and delivery options, tailored to your schedule.</p></div>
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-tags"></i><h3>Affordable Prices</h3><p>Experience exceptional care without breaking the bank — our affordable prices make laundry day stress-free.</p></div>
+            </div>
+        </section>
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-text"><h2>Subscribe to our newsletter.</h2></div>
+                <form class="newsletter-form">
+                    <input type="text" placeholder="Full name" required>
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+        <footer id="footer-section">
+        <div class="footer-container">
+            <div class="footer-col about">
+                <img src="images/logo.png" alt="CycleServe Logo" class="footer-logo">
+            </div>
+            <div class="footer-col contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:mail@cycleserve.com">mail@cycleserve.com</a></p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+911234567890">+91 12345 67890</a></p>
+            </div>
+            <div class="footer-col social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+ <script src="script.js"></script>
+</body>
+</html>
