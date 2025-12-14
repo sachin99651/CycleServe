@@ -3,127 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CycleServe</title>
-        <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>CycleServe - Premium Laundry</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
 </head>
 <body>
+
     <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="images/logo.png" id="logo_img" alt="CycleServe Logo">
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#quality-section">About</a></li>
-                    <li><a href="#footer-section">Contact</a></li>
-                </ul>
-                <div class="btn user">Sachin</div>
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="CycleServe Logo">
             </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#booking-section">Services</a></li>
+                <li><a href="#quality-section">About</a></li>
+                <li><a href="#footer-section">Contact</a></li>
+            </ul>
+            <div class="btn user-badge">Sachin</div>
         </nav>
     </header>
+
     <main>
-        <section class="Hero">
-            <h1>Reclaim Your Laundry Day</h1>
-            <p>Spend less time on chores and more on what you love. CycleServe delivers fresh, clean, and perfectly folded laundry right to your door. Effortless booking, premium care.</p>
-            <a href="#" class="h_btn btn">Book a Service Today</a>
-        </section>
-        <section class="achievements">
-            <h2 class="section-title">Our Achievements</h2>
-            <div class="overview">
-                <div><h3>15+</h3><p>Laundry Services</p></div>
-                <div><h3>240+</h3><p>Happy Customers</p></div>
-                <div><h3>2+</h3><p>Years of Experience</p></div>
+        <section class="hero">
+            <div class="hero-content">
+                <h3 data-aos="fade-down">Reclaim Your Laundry Day</h3>
+                <p data-aos="fade-up" data-aos-delay="200">Spend less time on chores. CycleServe delivers fresh, clean laundry right to your door.</p>
+                <a href="#booking-section" class="btn" data-aos="fade-up" data-aos-delay="400">Book Now</a>
             </div>
         </section>
-        <section class="services-booking-section" id="services">
-             <div class="left-service-panel">
+
+        <section class="achievements" data-aos="fade-up">
+            <h2>Our Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-box"><h3>15+</h3><p>Services</p></div>
+                <div class="stat-box"><h3>240+</h3><p>Customers</p></div>
+                <div class="stat-box"><h3>2+</h3><p>Years Exp.</p></div>
+            </div>
+        </section>
+        
+        <section id="booking-section" class="booking-wrapper">
+            <div class="services-panel" data-aos="fade-right">
                 <h2 class="section-title">Our Services</h2>
-                <p class="section-description">Click on the Add Item button to add services to your cart.</p>
-                <div id="service-list-container">
-                </div>
+                <p class="subtitle">Select items to add to your cart.</p>
+                <div id="service-list"></div>
+                <p class="info-text"><i class="fas fa-info-circle"></i> Add items, then fill details to book.</p>
             </div>
-            <div class="right-cart-panel">
-                <div class="cart-summary card">
+
+            <div class="cart-panel" data-aos="fade-left" data-aos-delay="200">
+                <div class="card cart-summary">
                     <h4>Added Items</h4>
                     <table>
                         <thead>
-                            <tr>
-                                <th>S.No</th>
-                                <th>Service Name</th>
-                                <th>Price</th>
-                            </tr>
+                            <tr><th>No.</th><th>Service</th><th>Price</th></tr>
                         </thead>
-                        <tbody id="cart-items-tbody">
-                            <tr class="cart-empty-message">
-                                <td colspan="3">No items added yet.</td>
-                            </tr>
+                        <tbody id="cart-body">
+                            <tr><td colspan="3" class="empty-msg">No items yet.</td></tr>
                         </tbody>
                     </table>
-                    <div class="total-amount-display">
-                        <strong>Total Amount</strong>
-                        <span>₹<span id="total-amount">0</span></span>
+                    <div class="total-row">
+                        <strong>Total:</strong> <span>₹<span id="total-amount">0</span></span>
                     </div>
                 </div>
-                <div class="booking-form card">
-                    <h4>Book Now</h4>
+
+                <div class="card booking-form">
+                    <h4>Your Details</h4>
                     <input type="text" id="fullName" placeholder="Full Name" required>
                     <input type="email" id="email" placeholder="Email Address" required>
                     <input type="tel" id="phone" placeholder="Phone Number" required>
-                    <button id="book-now-btn" class="btn" disabled>Book Now</button>
-                    <p id="confirmation-message"></p>
+                    <button id="book-now-btn" class="btn" disabled>Confirm Booking</button>
+                    <p id="msg-box"></p>
                 </div>
             </div>
         </section>
-        <section id="quality-section" class="quality-section">
-            <div class="quality-grid">
-                <div class="quality-item" data-aos="fade-up" data-aos-delay="0"><i class="fas fa-box-open"></i><h3>Premium Services</h3><p>Elevate your wardrobe with our meticulous dry cleaning, ensuring garments look and feel as good as new.</p></div>
-                <div class="quality-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-headset"></i><h3>Quick Support</h3><p>We're committed to providing prompt solutions to ensure your experience is smooth and worry-free.</p></div>
-                <div class="quality-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-truck"></i><h3>Hassle Free Delivery</h3><p>Enjoy seamless service with our convenient pickup and delivery options, tailored to your schedule.</p></div>
-                <div class="quality-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-tags"></i><h3>Affordable Prices</h3><p>Experience exceptional care without breaking the bank — our affordable prices make laundry day stress-free.</p></div>
+
+        <section id="quality-section" class="features-section">
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up"><i class="fas fa-box-open"></i><h3>Premium Care</h3><p>Meticulous dry cleaning for your best clothes.</p></div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-headset"></i><h3>Quick Support</h3><p>Prompt solutions for a smooth experience.</p></div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-truck"></i><h3>Fast Delivery</h3><p>Pickup and drop-off at your convenience.</p></div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-tags"></i><h3>Best Prices</h3><p>Exceptional care that fits your budget.</p></div>
             </div>
         </section>
-        <section class="newsletter-section">
-            <div class="newsletter-container">
-                <div class="newsletter-text"><h2>Subscribe to our newsletter.</h2></div>
-                <form class="newsletter-form">
-                    <input type="text" placeholder="Full name" required>
-                    <input type="email" placeholder="Email" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
+
+        <section class="newsletter" data-aos="zoom-in-up">
+            <h2>Subscribe for updates.</h2>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-white">Subscribe</button>
+            </form>
         </section>
     </main>
-        <footer id="footer-section">
-        <div class="footer-container">
-            <div class="footer-col about">
-                <img src="images/logo.png" alt="CycleServe Logo" class="footer-logo">
+    
+    <footer id="footer-section">
+        <div class="footer-grid" data-aos="fade-up">
+            <div class="footer-about">
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
             </div>
-            <div class="footer-col contact">
+            <div class="footer-contact">
                 <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:mail@cycleserve.com">mail@cycleserve.com</a></p>
-                <p><i class="fas fa-phone-alt"></i> <a href="tel:+911234567890">+91 12345 67890</a></p>
+                <p><i class="fas fa-envelope"></i> mail@cycleserve.com</p>
+                <p><i class="fas fa-phone-alt"></i> +91 12345 67890</p>
             </div>
-            <div class="footer-col social">
-                <h3>Follow Us</h3>
+            <div class="footer-social">
+                <h3>Follow</h3>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
     </footer>
- <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script> AOS.init({ duration: 800, once: true }); </script>
+    <script src="script.js"></script>
 </body>
 </html>
