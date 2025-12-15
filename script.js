@@ -1,5 +1,4 @@
-// 1. CONFIGURATION
-emailjs.init('EG69SQS4Vn9FeCpFO'); // Your Key
+emailjs.init('EG69SQS4Vn9FeCpFO');
 
 const servicesData = [
     { id: 1, name: "Dry Cleaning", price: 200, icon: "fas fa-tshirt" },
@@ -12,20 +11,15 @@ const servicesData = [
 
 let cart = [];
 
-// DOM Elements
 const serviceListEl = document.getElementById('service-list');
 const cartBodyEl = document.getElementById('cart-body');
 const totalEl = document.getElementById('total-amount');
 const bookBtn = document.getElementById('book-now-btn');
 const msgBox = document.getElementById('msg-box');
 
-// 2. RENDER FUNCTIONS
 const renderServices = () => {
     serviceListEl.innerHTML = servicesData.map(service => {
-        // Check if item is in cart
         const inCart = cart.some(item => item.id === service.id);
-        
-        // Return HTML string
         return `
             <div class="service-row">
                 <div class="s-info">
@@ -42,19 +36,13 @@ const renderServices = () => {
 };
 
 const updateCartDisplay = () => {
-    // Calculate Total
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     totalEl.innerText = total;
-
-    // Toggle Button
     bookBtn.disabled = cart.length === 0;
-
-    // Render Table Rows
     if (cart.length === 0) {
         cartBodyEl.innerHTML = '<tr><td colspan="3" class="empty-msg">Cart is empty</td></tr>';
         return;
     }
-
     cartBodyEl.innerHTML = cart.map((item, idx) => `
         <tr>
             <td>${idx + 1}</td>
@@ -63,8 +51,6 @@ const updateCartDisplay = () => {
         </tr>
     `).join('');
 };
-
-// 3. LOGIC HANDLERS
 const toggleItem = (id) => {
     const service = servicesData.find(s => s.id === id);
     const exists = cart.find(c => c.id === id);
@@ -72,14 +58,13 @@ const toggleItem = (id) => {
     if (exists) {
         cart = cart.filter(c => c.id !== id); // Remove
     } else {
-        cart.push(service); // Add
+        cart.push(service);
     }
     
-    renderServices();   // Re-render buttons
-    updateCartDisplay(); // Re-render cart table
+    renderServices();  
+    updateCartDisplay();
 };
 
-// 4. EVENT LISTENERS
 serviceListEl.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (btn) toggleItem(parseInt(btn.dataset.id));
@@ -126,6 +111,5 @@ bookBtn.addEventListener('click', () => {
         });
 });
 
-// Init
 renderServices();
 updateCartDisplay();
